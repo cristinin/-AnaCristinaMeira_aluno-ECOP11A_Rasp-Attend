@@ -1,0 +1,16 @@
+# Arquivos de build
+*.o
+*.out
+*.exe
+
+# Diretórios de build
+/build/
+/bin/
+/obj/
+
+# Arquivos de depuração
+*.log
+*.dSYM/
+
+# Arquivos de backup
+*~
