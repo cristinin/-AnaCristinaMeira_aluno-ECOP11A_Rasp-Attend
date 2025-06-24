@@ -1,0 +1,77 @@
+body {
+    background: radial-gradient(circle at center, #0f2027, #203a43, #2c5364);
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    color: #ff99ff;
+    text-shadow: 0 0 10px #ff99ff;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: #333;
+    color: white;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background: linear-gradient(90deg, #ff66cc, #66ffff);
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+/* Responsivo para celular */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+        height: auto;
+    }
+
+    .container {
+        padding: 20px 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}

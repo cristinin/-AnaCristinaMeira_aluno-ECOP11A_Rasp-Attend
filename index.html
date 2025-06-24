@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor de Presença</title>
+    <script>
+        function validarMatricula() {
+            var campo = document.getElementById('matricula');
+            var valor = campo.value;
+
+            if (!/^\d{10}$/.test(valor)) {
+                alert('Preencha completamente o campo de matrícula!');
+                campo.focus();
+                return false;
+            }
+
+            var ano = parseInt(valor.substring(0, 4));
+            if (ano < 2013 || ano > 2025) {
+                alert('Formato de matrícula inválido! Informe um ano entre 2013 e 2025.');
+                campo.focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        function apenasNumeros(event) {
+            var key = event.keyCode || event.which;
+
+            if (key < 48 || key > 57) {
+                if (![8, 9, 37, 39, 46].includes(key)) {
+                    event.preventDefault();
+                }
+            }
+
+            var campo = event.target;
+            if (campo.value.length >= 10 && key >= 48 && key <= 57) {
+                event.preventDefault();
+            }
+        }
+    </script>
+    <style>
+		body {
+    background: radial-gradient(circle at top, #1a1a2e, #0f3460, #16213e);
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 0 10px;
+    text-align: center;
+}
+
+h2 {
+    color: #c779d0;
+    text-shadow: 0 0 10px #c779d0;
+    font-size: 2em;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid #4b4b4b;
+    padding: 25px 18px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(199, 121, 208, 0.5);
+    width: 320px;
+    max-width: 90%;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    margin-top: 14px;
+    color: #a29bfe;
+    font-size: 1em;
+}
+
+input[type="text"], input[type="submit"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    border: 1px solid #4b4b4b;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+input[type="text"]::placeholder {
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+input[type="submit"] {
+    background: linear-gradient(90deg, #c779d0, #4bc0c8);
+    color: #1e1e1e;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(90deg, #4bc0c8, #c779d0);
+    color: white;
+    box-shadow: 0 0 10px #c779d0;
+}
+
+/* RESPONSIVIDADE MOBILE */
+@media (max-width: 600px) {
+    body {
+        padding-top: 40px;
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    h2 {
+        font-size: 1.6em;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+
+    form {
+        width: 95%;
+        padding: 20px 15px;
+        margin-top: 10px;
+    }
+
+    label {
+        font-size: 0.95em;
+        margin-top: 10px;
+    }
+
+    input[type="text"], input[type="submit"] {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <h2>Gestor de Presença</h2>
+
+    <form action="save.php" method="post">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome" required>
+
+    <label for="matricula">Matrícula:</label>
+    <input type="text" name="matricula" id="matricula" required maxlength="10" minlength="10" pattern="[0-9]{10}">
+	        <input type="submit" value="Confirmar Presença">
+   
+</form>
+
+
+</body>
+</html>
